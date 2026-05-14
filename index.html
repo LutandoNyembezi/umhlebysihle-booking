@@ -512,6 +512,40 @@
     transition: transform 0.4s;
   }
   .toast.show { transform: translateX(0); }
+
+  
+ /* Block from getting code */
+ 
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.onkeydown = function(e) {
+
+    // Ctrl + U (View Source)
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+        return false;
+    }
+
+    // F12 (DevTools)
+    if (e.keyCode === 123) {
+        return false;
+    }
+
+    // Ctrl + Shift + I (Inspect)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+        return false;
+    }
+
+    // Ctrl + Shift + J (Console)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+        return false;
+    }
+
+    // Ctrl + Shift + C (Element picker)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+        return false;
+    }
+};
 </style>
 </head>
 <body>
